@@ -1,5 +1,3 @@
-#参考：https://qiita.com/Jixjia/items/881c03c50c6f07b0b6ab
-
 import bs4
 import requests
 import re
