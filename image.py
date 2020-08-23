@@ -11,10 +11,9 @@ import json
 def get_soup(url,header):
 	return bs4.BeautifulSoup(urllib.request.urlopen(urllib.request.Request(url,headers=header)),'html.parser')
 
-def main(args, PenguinName):
-	search = urllib.parse.quote(PenguinName)
+def main(args):
 	parser = argparse.ArgumentParser(description = 'Options for scraping Google images')
-	parser.add_argument('-s', '--search', default = search, type = str, help = 'search term')
+	parser.add_argument('-s', '--search', type = str, help = 'search term')
 	args = parser.parse_args()
 
 	query = args.search.split()
@@ -50,9 +49,7 @@ def main(args, PenguinName):
 if __name__ == '__main__':
 	from sys import argv
 	try:
-		PenguinList = ["エンペラーペンギン", "キングペンギン", "アデリーペンギン", "ヒゲペンギン", "ジェンツーペンギン", "ロイヤルペンギン", "マカロニペンギン", "スネアーズペンギン", "シュレーターペンギン", "イワトビペンギン", "フィヨルドランドペンギン", "ケープペンギン", "マゼランペンギン", "フンボルトペンギン", "ガラパゴスペンギン", "キガシラペンギン", "コガタペンギン", "ハネジロペンギン", "Emperor Penguin", "King Penguin", "Adelie Penguin", "Chinstrap Penguin", "Gentoo Penguin", "Royal Penguin", "Macaroni Penguin", "Snares penguin", "Erect-crested Penguin", "Rockhopper Penguin", "Fiordland Penguin", "African Penguin", "Magellanic Penguin", "Humboldt Penguin", "Galápagos Penguin", "Yellow-eyed Penguin", "Little Penguin", "White-flippered Penguin"]
-		for Penguin in PenguinList:
-			main(argv, Penguin)
+		main(argv)
 	except KeyboardInterrupt:
 		pass
 	sys.exit()
